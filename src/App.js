@@ -6,16 +6,22 @@ import HomePage from './Pages/Homepage';
 import ShopPage from './Pages/ShopPage';
 
 import './App.css';
+import Header from './components/Header';
+import SignIn_Signup from './Pages/SignIn_Signup';
 
 
 function App() {
   return (
-    <Switch >
-      <Route exact path="/" component={HomePage} />
-      <Route exact path="/shop" component={ShopPage} />
+    <div>
+      <Header />
 
+      <Switch >
+        <Route exact path="/" component={HomePage} />
+        <Route exact path="/shop" component={ShopPage} />
+        <Route exact path="/signin" component={SignIn_Signup} />
 
-    </Switch>
+      </Switch>
+    </div>
   );
 }
 
