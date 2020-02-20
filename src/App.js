@@ -5,7 +5,6 @@ import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.action";
 
 import HomePage from "./Pages/Homepage";
-// import LayoutHeader from './HOC/LayoutHeader';
 import ShopPage from "./Pages/ShopPage";
 
 import "./App.css";

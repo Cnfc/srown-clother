@@ -1,7 +1,7 @@
 import React from "react";
 
 import FormInput from "../FormInput";
-import CustomButton from "../CustomButton/CustomButton";
+import CustomButton from "../../../components/CustomButton";
 
 import {
   auth,
