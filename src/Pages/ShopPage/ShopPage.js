@@ -1,15 +1,12 @@
-import React, { Component } from 'react';
+import React, { Component } from "react";
 
-
-import SHOP_DATA from './shop.data';
-import PreviewCollection from '../../components/preview-collection/PreviewCollection';
+import SHOP_DATA from "./shop.data";
+import PreviewCollection from "../../components/preview-collection/PreviewCollection";
 
 class ShopPage extends Component {
-
   state = {
     collections: SHOP_DATA
-  }
-
+  };
 
   render() {
     const { collections } = this.state;
