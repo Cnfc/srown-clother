@@ -28,8 +28,6 @@ class SignIn extends React.Component {
     } catch (error) {
       console.log(error);
     }
-
-    this.setState({ email: "", password: "" });
   };
 
   handleChange = event => {
@@ -61,12 +59,10 @@ class SignIn extends React.Component {
             label="password"
             required
           />
-
           <div className="buttons">
             <CustomButton type="submit"> Sign in </CustomButton>
             <CustomButton onClick={signInWithGoogle} isGoogleSignIn>
-              {" "}
-              Sign in with Google{" "}
+              Sign in with Google
             </CustomButton>
           </div>
         </form>

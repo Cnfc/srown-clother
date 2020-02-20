@@ -9,35 +9,31 @@ import "./Header.scss";
 
 const Header = ({ currentUser }) => (
   <div className="header">
-    <Link to="/">
-      <Logo />
+    <Link className="logo-container" to="/">
+      <Logo className="logo" />
     </Link>
     <div className="options">
       <Link className="option" to="/shop">
         SHOP
       </Link>
-
       <Link className="option" to="/shop">
         CONTACT
       </Link>
-
       {currentUser ? (
         <div className="option" onClick={() => auth.signOut()}>
-          Sign Out
+          SIGN OUT
         </div>
       ) : (
-        <Link to="/signin" className="option">
-          Sign In
+        <Link className="option" to="/signin">
+          SIGN IN
         </Link>
       )}
     </div>
   </div>
 );
 
-const mapStateToProps = function(state) {
-  return {
-    user: state.user.currentUser
-  };
-};
+const mapStateToProps = state => ({
+  currentUser: state.user.currentUser
+});
 
 export default connect(mapStateToProps)(Header);
