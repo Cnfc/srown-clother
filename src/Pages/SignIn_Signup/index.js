@@ -1,3 +1,3 @@
-import SignIn_Signup from './SignIn_Signup'
+import SignInAndSignUpPage from "./SignInAndSignUpPage";
 
-export default SignIn_Signup;
+export default SignInAndSignUpPage;
