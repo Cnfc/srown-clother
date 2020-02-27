@@ -1,3 +1,3 @@
-export const CartActionTypes = {
-  MY_NAME: "MY_NAME"
-};
+const CartActionTypes = { TOGGLE_CART_HIDDEN: "TOGGLE_CART_HIDDEN" };
+
+export default CartActionTypes;

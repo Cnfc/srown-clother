@@ -1,15 +1,15 @@
-import { CartActionTypes } from "./cart.types";
+import CartActionTypes from "./cart.types";
 
 const INITIAL_STATE = {
-  cart: "do not trust me"
+  hidden: true
 };
 
-const userReducer = (state = INITIAL_STATE, action) => {
+const cartReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
-    case CartActionTypes.MY_NAME:
+    case CartActionTypes.TOGGLE_CART_HIDDEN:
       return {
         ...state,
-        cart: action.payload
+        hidden: !state.hidden
       };
 
     default:
@@ -17,4 +17,4 @@ const userReducer = (state = INITIAL_STATE, action) => {
   }
 };
 
-export default userReducer;
+export default cartReducer;
