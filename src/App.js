@@ -4,7 +4,7 @@ import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { connect } from "react-redux";
 import { setCurrentUser } from "./redux/user/user.action";
 import { createStructuredSelector } from "reselect";
-import { selectCurrentUser } from "./redux/user/user.selector";
+import { selectCurrentUser } from "./redux/user/user.selectors";
 
 import ShopPage from "Pages/ShopPage";
 import HomePage from "Pages/Homepage";
@@ -44,7 +44,9 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
+
           <Route exact path="/shop" component={ShopPage} />
+          <Route exact path="/contact" component={HomePage} />
           <Route
             exact
             path="/signin"

@@ -8,5 +8,5 @@ const middlewares = [logger];
 
 export const store = createStore(
   RootReducer,
-  /* preloadedState, */ composeEnhancers(applyMiddleware(...middlewares))
+  /* preloadedState, */ composeEnhancers(applyMiddleware())
 );
