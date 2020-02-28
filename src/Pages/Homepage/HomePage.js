@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Directory from "../../components/directory";
+import Directory from "components/directory";
 import "./HomePage.scss";
 
 const HomePage = () => (

@@ -1,10 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { selectCartItem } from "../../redux/cart/cart.selector";
 import { createStructuredSelector } from "reselect";
 
-import CustomButton from "../CustomButton";
-import CartItem from "../cartItem/CartItem";
+import { selectCartItem } from "redux/cart/cart.selector";
+import CustomButton from "components/CustomButton";
+import CartItem from "components/cartItem/CartItem";
 
 import "./CartDropdown.scss";
 
