@@ -6,12 +6,13 @@ import { connect } from "react-redux";
 import { auth, createUserProfileDocument } from "./firebase/firebase.utils";
 import { setCurrentUser } from "./redux/user/user.actions";
 import { selectCurrentUser } from "./redux/user/user.selector";
+
 import HomePage from "./Pages/Homepage";
 import ShopPage from "./Pages/ShopPage";
-
-import "./App.css";
+import Checkout from "Pages/checkout";
 import Header from "./components/Header";
 import SignInAndSignUpPage from "./Pages/SignIn_Signup";
+import "./App.css";
 
 class App extends Component {
   unsubscribeFromAuth = null;
@@ -45,7 +46,8 @@ class App extends Component {
         <Header />
         <Switch>
           <Route exact path="/" component={HomePage} />
-          <Route exact path="/shop" component={ShopPage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route exact path="/checkout" component={Checkout} />
           <Route
             exact
             path="/signin"
