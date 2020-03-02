@@ -13,7 +13,7 @@ const HomePage = ({ homeItem, showHomeItem, addHomeItem, minusHomeItem }) => {
   return (
     <div className="homepage">
       <h1>Welcome to my Homepage </h1>
-      {homeItem.showItem ? (
+      {/* {homeItem.showItem ? (
         <div>
           <button onClick={minusHomeItem}>-</button>
 
@@ -23,7 +23,7 @@ const HomePage = ({ homeItem, showHomeItem, addHomeItem, minusHomeItem }) => {
         </div>
       ) : (
         <span onClick={showHomeItem}>None</span>
-      )}
+      )} */}
       <Directory />
     </div>
   );
