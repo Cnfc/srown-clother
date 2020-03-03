@@ -5,16 +5,16 @@ Fullstack React Shop
 Using tech:
 React, React Router, Redux, Redux Saga, GraphQl, Apollo
 
-## Available Scripts
-
-In the project directory, you can run:
-
-### `yarn start`
-
-### `yarn test`
-
-### `yarn build`
-
-## Add some:
-
 -- with Router navigation Hoc
+
+# Redux - Reselect
+
+Simple “selector” library for Redux (and others) inspired by getters in NuclearJS, subscriptions in re-frame and this proposal from speedskater.
+
+Selectors can compute derived data, allowing Redux to store the minimal possible state.
+Selectors are efficient. A selector is not recomputed unless one of its arguments changes.
+Selectors are composable. They can be used as input to other selectors.
+
+# Redux - Persist
+
+Persist and rehydrate a redux store.
