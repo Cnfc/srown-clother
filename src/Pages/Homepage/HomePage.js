@@ -6,7 +6,7 @@ import {
   addHomeItem,
   minusHomeItem
 } from "redux/home/home.actions";
-import Directory from "components/directory";
+import Directory from "components/Directory";
 import "./HomePage.scss";
 
 const HomePage = ({ homeItem, showHomeItem, addHomeItem, minusHomeItem }) => {
