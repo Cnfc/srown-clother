@@ -1,6 +1,6 @@
 import React, { Component } from "react";
 
-import MenuItem from "components/menu-item";
+import MenuItem from "components/MenuItem";
 
 class Layout extends Component {
   render() {

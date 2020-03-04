@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import { addItem } from "redux/cart/cart.action";
+import { addItem } from "redux/cart/cart.actions";
 import CustomButton from "components/CustomButton";
 
 import "./CollectionItem.scss";
@@ -19,7 +19,7 @@ const CollectionItem = ({ item, addItem }) => {
       />
       <div className="collection-footer">
         <span className="name">{name}</span>
-        <span className="price">{price}</span>
+        <span className="price">{price}$</span>
       </div>
       <CustomButton onClick={() => addItem(item)} inverted>
         Add to cart.

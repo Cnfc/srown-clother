@@ -1,6 +1,6 @@
 import React from "react";
 
-import FormInput from "Pages/SignIn_Signup/FormInput";
+import FormInput from "../FormInput";
 import CustomButton from "components/CustomButton";
 
 import { auth, signInWithGoogle } from "firebase/firebase.utils";

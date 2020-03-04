@@ -3,14 +3,12 @@ import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import { createStructuredSelector } from "reselect";
 
-import { auth } from "../../firebase/firebase.utils";
-import CartIcon from "components/cart-icon";
-import CartDropdown from "components/CartDropdown";
+import { auth } from "firebase/firebase.utils";
+import { ReactComponent as Logo } from "assets/crown.svg";
+import CartIcon from "components/CartIcon";
+import CartDropdown from "components/CartDropdown/CartDropdown";
 import { selectCartHidden } from "redux/cart/cart.selectors";
-import { selectCurrentUser } from "../../redux/user/user.selectors";
-
-import { ReactComponent as Logo } from "../../assets/crown.svg";
-
+import { selectCurrentUser } from "redux/user/user.selectors";
 import "./Header.scss";
 
 const Header = ({ currentUser, hidden }) => {

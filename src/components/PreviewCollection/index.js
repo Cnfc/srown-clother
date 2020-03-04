@@ -1,3 +1,3 @@
 import PreviewCollection from "./PreviewCollection";
 
-export default PreviewCollection
+export default PreviewCollection;
