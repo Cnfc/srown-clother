@@ -17,7 +17,7 @@ const CollectionsOverview = ({ collections }) => {
 };
 
 CollectionsOverview.propTypes = {
-  collections: PropTypes.object
+  collections: PropTypes.array
 };
 
 const mapStateToProps = createStructuredSelector({
