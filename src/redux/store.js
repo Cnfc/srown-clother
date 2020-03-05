@@ -6,7 +6,11 @@ import reduxThunk from "redux-thunk";
 import RootReducer from "./RootReducer";
 
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
-const middlewares = [logger, reduxThunk];
+const middlewares = [reduxThunk];
+
+if (process.env.NODE_ENV === "development") {
+  middlewares.push(logger);
+}
 
 export const store = createStore(
   RootReducer,

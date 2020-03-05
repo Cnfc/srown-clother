@@ -6,12 +6,12 @@ import { connect } from "react-redux";
 import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 import { setCurrentUser } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selectors";
-
 import HomePage from "Pages/Homepage";
 import ShopPage from "Pages/ShopPage";
 import Checkout from "Pages/checkout";
 import Header from "components/Header";
 import SignInAndSignUpPage from "Pages/SignIn_Signup";
+
 import "./App.css";
 
 class App extends Component {
