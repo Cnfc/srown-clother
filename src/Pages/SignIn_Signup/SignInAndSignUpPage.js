@@ -3,7 +3,7 @@ import React, { Component } from "react";
 import SignIn from "./SignIn";
 import SignUp from "./SignUp";
 
-import "./sign-in-and-sign-up.scss";
+import { SignInAndSignUpContainer } from "./SignInAndSignUpPage.styled";
 
 class SignInAndSignUpPage extends Component {
   constructor(props) {
@@ -13,10 +13,10 @@ class SignInAndSignUpPage extends Component {
   }
   render() {
     return (
-      <div className="sign-in-and-sign-up">
+      <SignInAndSignUpContainer>
         <SignIn />
         <SignUp />
-      </div>
+      </SignInAndSignUpContainer>
     );
   }
 }
