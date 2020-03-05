@@ -6,13 +6,15 @@ import { createStructuredSelector } from "reselect";
 
 import { selectCollectionsForPreview } from "redux/shop/shop.selectors";
 
+import { ImageStyled } from "./CollectionsOverview.styled";
+
 const CollectionsOverview = ({ collections }) => {
   return (
-    <div className="collections-overview">
+    <ImageStyled>
       {collections.map(({ id, ...otherCollectionProps }) => (
         <PreviewCollection key={id} {...otherCollectionProps} />
       ))}
-    </div>
+    </ImageStyled>
   );
 };
 

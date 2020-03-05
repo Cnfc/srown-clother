@@ -7,6 +7,22 @@ export const CollectionItemStyled = styled.div`
   height: 350px;
   align-items: center;
   position: relative;
+
+  &:hover {
+    .background-image {
+      opacity: 0.8;
+    }
+    .add-button {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      &:hover {
+        background-color: black;
+        color: white;
+        opacity: 0.85;
+      }
+    }
+  }
 `;
 
 export const ImageStyled = styled.div`
@@ -15,6 +31,7 @@ export const ImageStyled = styled.div`
   background-size: cover;
   background-position: center;
   margin-bottom: 5px;
+  background-image: ${({ imageUrl }) => `url(${imageUrl})`};
 `;
 
 export const CollectionFooterStyled = styled.div`
@@ -34,19 +51,16 @@ export const PriceStyled = styled.span`
   width: 10%;
 `;
 
-// .custom-button {
-//   width: 80%;
-//   opacity: 0.7;
-//   position: absolute;
-//   top: 255px;
-//   display: none;
-// }
-
-// &:hover {
-//   .image {
-//     opacity: 0.8;
-//   }
-
-//   .custom-button {
-//     opacity: 0.85;
-//     display: flex;
+export const AddButton = styled.div`
+  position: absolute;
+  height: 50px;
+  width: 80%;
+  padding: 25px;
+  opacity: 0.7;
+  background-color: white;
+  color: black;
+  font-weight: bold;
+  display: none;
+  top: 255px;
+  cursor: pointer;
+`;

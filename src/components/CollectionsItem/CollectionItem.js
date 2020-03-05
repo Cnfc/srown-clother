@@ -9,7 +9,8 @@ import {
   ImageStyled,
   CollectionFooterStyled,
   NameStyled,
-  PriceStyled
+  PriceStyled,
+  AddButton
 } from "./CollectionItem.styled.js";
 
 const CollectionItem = ({ item, addItem }) => {
@@ -22,9 +23,9 @@ const CollectionItem = ({ item, addItem }) => {
         <NameStyled>{name}</NameStyled>
         <PriceStyled>{price}$</PriceStyled>
       </CollectionFooterStyled>
-      <CustomButton onClick={() => addItem(item)} inverted>
+      <AddButton className="add-button" onClick={() => addItem(item)} inverted>
         Add to cart.
-      </CustomButton>
+      </AddButton>
     </CollectionItemStyled>
   );
 };
