@@ -14,7 +14,7 @@ if (process.env.NODE_ENV === "development") {
 
 export const store = createStore(
   RootReducer,
-  /* preloadedState, */ composeEnhancers(applyMiddleware())
+  /* preloadedState, */ composeEnhancers(applyMiddleware(...middlewares))
 );
 
 export const persistor = persistStore(store);

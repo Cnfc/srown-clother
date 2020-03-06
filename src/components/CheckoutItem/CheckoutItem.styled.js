@@ -25,6 +25,7 @@ export const RemoveButtonStyled = styled.div`
 
 export const TextContainer = styled.span`
   width: 23%;
+  cursor: pointer;
 `;
 
 export const QuantityContainer = styled(TextContainer)`

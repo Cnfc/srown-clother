@@ -8,16 +8,17 @@ import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 import { SignUpContainer, SignUpTitle } from "./SignUp.styled";
 
 class SignUp extends React.Component {
-  constructor() {
-    super();
+  state = {
+    displayName: "",
+    email: "",
+    password: "",
+    confirmPassword: ""
+  };
 
-    this.state = {
-      displayName: "",
-      email: "",
-      password: "",
-      confirmPassword: ""
-    };
-  }
+  handleChange = event => {
+    const { name, value } = event.target;
+    this.setState({ [name]: value });
+  };
 
   handleSubmit = async event => {
     event.preventDefault();
@@ -34,24 +35,17 @@ class SignUp extends React.Component {
         email,
         password
       );
-
-      await createUserProfileDocument(user, { displayName });
-
-      this.setState({
-        displayName: "",
-        email: "",
-        password: "",
-        confirmPassword: ""
-      });
+      createUserProfileDocument(user, { displayName });
     } catch (error) {
       console.error(error);
     }
-  };
 
-  handleChange = event => {
-    const { name, value } = event.target;
-
-    this.setState({ [name]: value });
+    this.setState({
+      displayName: "",
+      email: "",
+      password: "",
+      confirmPassword: ""
+    });
   };
 
   render() {
