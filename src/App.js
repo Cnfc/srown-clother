@@ -3,20 +3,16 @@ import { Route, Switch, Redirect } from "react-router-dom";
 import { createStructuredSelector } from "reselect";
 import { connect } from "react-redux";
 
-import {
-  auth,
-  createUserProfileDocument,
-  addCollectionAndDocuments
-} from "firebase/firebase.utils";
+import { auth, createUserProfileDocument } from "firebase/firebase.utils";
 import { setCurrentUser } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selectors";
-import { selectCollectionsForPreview } from "redux/shop/shop.selectors";
 
 import HomePage from "Pages/Homepage";
 import ShopPage from "Pages/ShopPage";
 import Checkout from "Pages/checkout";
 import Header from "components/Header";
 import SignInAndSignUpPage from "Pages/SignIn_Signup";
+import Contact from "Pages/Contact";
 
 import "./App.css";
 
@@ -24,7 +20,7 @@ class App extends Component {
   unsubscribeFromAuth = null;
 
   componentDidMount() {
-    const { setCurrentUser, collectionArray } = this.props;
+    const { setCurrentUser } = this.props;
 
     this.unsubscribeFromAuth = auth.onAuthStateChanged(async userAuth => {
       if (userAuth) {
@@ -38,10 +34,6 @@ class App extends Component {
         });
       }
       setCurrentUser(userAuth);
-      addCollectionAndDocuments(
-        "collections",
-        collectionArray.map(({ title, items }) => ({ title, items }))
-      );
     });
   }
 
@@ -56,6 +48,7 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
+          <Route path="/contact" component={Contact} />
           <Route exact path="/checkout" component={Checkout} />
           <Route
             exact
@@ -75,8 +68,7 @@ class App extends Component {
 }
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser,
-  collectionArray: selectCollectionsForPreview
+  currentUser: selectCurrentUser
 });
 
 const mapDispatchToProps = dispatch => ({
