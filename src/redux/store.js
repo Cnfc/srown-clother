@@ -5,6 +5,8 @@ import reduxThunk from "redux-thunk";
 
 import RootReducer from "./RootReducer";
 
+import { loadCourses } from "redux/counter/counter.action";
+
 const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 const middlewares = [reduxThunk];
 
@@ -17,6 +19,8 @@ export const store = createStore(
   /* preloadedState, */
   composeEnhancers(applyMiddleware(...middlewares))
 );
+
+store.dispatch(loadCourses());
 
 export const persistor = persistStore(store);
 

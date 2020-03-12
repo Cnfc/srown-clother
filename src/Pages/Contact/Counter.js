@@ -1,17 +1,13 @@
 import React from "react";
 import { connect } from "react-redux";
 
-import Reddit from "./Reddit.js";
+import CourseListPage from "./Reddit.js";
 
 class Counter extends React.Component {
-  state = {
-    me: 0
-  };
-
   render() {
     return (
       <div>
-        <Reddit />
+        <CourseListPage />
       </div>
     );
   }

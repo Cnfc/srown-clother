@@ -1,37 +1,63 @@
+/* eslint-disable default-case */
 // import CounterActionTypes from "./counter.types";
+import produce from "immer";
+import CounterActionTypes from "./counter.types";
 
 const INITIAL_STATE = {
-  isLoading: false,
-  err: null,
-  posts: []
+  coursesError: null,
+  coursesLoading: false,
+  saveInProgress: false,
+  saveError: null,
+  courses: [],
+  newCourseModalOpen: false
 };
 
-const CounterReducer = (state = INITIAL_STATE, action) => {
+const CounterReducer = produce((draft, action) => {
   switch (action.type) {
-    case "GET_POSTS_BEGIN":
-      return {
-        ...state,
-        isLoading: true,
-        err: null
-      };
+    case CounterActionTypes.ADD_COURSE_BEGIN:
+      draft.saveInProgress = true;
+      draft.saveError = null;
+      return;
 
-    case "GET_POSTS_SUCCESS":
-      return {
-        ...state,
-        posts: action.posts,
-        isLoading: false
-      };
+    case CounterActionTypes.ADD_COURSE_SUCCESS:
+      draft.courses.push(action.payload);
+      draft.saveInProgress = false;
+      draft.newCourseModalOpen = false;
+      return;
 
-    case "GET_POSTS_ERROR":
-      return {
-        ...state,
-        isLoading: false,
-        err: action.err
-      };
+    case CounterActionTypes.ADD_COURSE_ERROR:
+      draft.saveInProgress = false;
+      draft.saveError = action.error;
+      return;
+    // =========================
+
+    case CounterActionTypes.LOAD_COURSES_BEGIN:
+      draft.coursesLoading = true;
+      draft.coursesError = null;
+      return;
+
+    case CounterActionTypes.LOAD_COURSES_SUCCESS:
+      draft.coursesLoading = false;
+      draft.courses = action.payload;
+      return;
+
+    case CounterActionTypes.LOAD_COURSES_ERROR:
+      draft.coursesLoading = false;
+      draft.coursesError = action.payload;
+      return;
+
+    case CounterActionTypes.OPEN_NEW_COURSE_MODAL:
+      draft.newCourseModalOpen = true;
+      return;
+
+    case CounterActionTypes.CLOSE_NEW_COURSE_MODAL:
+      draft.newCourseModalOpen = false;
+      draft.saveError = null;
+      return;
 
     default:
-      return state;
+      return;
   }
-};
+}, INITIAL_STATE);
 
 export default CounterReducer;
