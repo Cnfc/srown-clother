@@ -18,3 +18,5 @@ Selectors are composable. They can be used as input to other selectors.
 # Redux - Persist
 
 Persist and rehydrate a redux store.
+
+# Redux Saga:
