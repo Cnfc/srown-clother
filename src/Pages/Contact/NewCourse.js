@@ -45,13 +45,14 @@ const NewCourse = ({ addCourse, saveInProgress, saveError }) => {
 };
 
 const mapState = state => ({
+  // =========== Need add createStructuredSelector ===========
   // courses: state.counter.courses,
-  saveInProgress: state.counter.saveInProgress,
-  saveError: state.counter.saveError
+  // saveInProgress: state.counter.saveInProgress,
+  // saveError: state.counter.saveError
 });
 const mapDispatchToProps = dispatch => ({
-  addCourse: (courseName, coursePrice) =>
-    dispatch(addCourse(courseName, coursePrice))
+  // addCourse: (courseName, coursePrice) =>
+  // dispatch(addCourse(courseName, coursePrice))
 });
 
 export default connect(mapState, mapDispatchToProps)(NewCourse);
