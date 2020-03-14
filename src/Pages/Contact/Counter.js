@@ -5,11 +5,7 @@ import CourseListPage from "./Reddit.js";
 
 class Counter extends React.Component {
   render() {
-    return (
-      <div>
-        <CourseListPage />
-      </div>
-    );
+    return <div>{/* <CourseListPage /> */}</div>;
   }
 }
 

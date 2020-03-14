@@ -13,6 +13,7 @@ import Checkout from "Pages/checkout";
 import Header from "components/Header";
 import SignInAndSignUpPage from "Pages/SignIn_Signup";
 import Contact from "Pages/Contact";
+import Redux from "Pages/Redux";
 
 import "./App.css";
 
@@ -26,7 +27,7 @@ class App extends Component {
       if (userAuth) {
         const userRef = await createUserProfileDocument(userAuth);
 
-        userRef.onSnapshot(snapShot => {
+        userRef.get().then(snapShot => {
           setCurrentUser({
             id: snapShot.id,
             ...snapShot.data()
@@ -49,6 +50,7 @@ class App extends Component {
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
           <Route path="/contact" component={Contact} />
+          <Route path="/redux" component={Redux} />
           <Route path="/contact/:courseid" component={Contact} />
           <Route exact path="/checkout" component={Checkout} />
           <Route

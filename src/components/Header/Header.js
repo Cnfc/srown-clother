@@ -25,6 +25,7 @@ const Header = ({ currentUser, hidden }) => {
       <OptionsStyled>
         <OptionLinkStyled to="/shop">SHOP</OptionLinkStyled>
         <OptionLinkStyled to="/contact">CONTACT</OptionLinkStyled>
+        <OptionLinkStyled to="/redux">Redux Test Page</OptionLinkStyled>
         {currentUser ? (
           <OptionLinkStyled as="div" onClick={() => auth.signOut()}>
             SIGN OUT

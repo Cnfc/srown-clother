@@ -4,15 +4,11 @@ import Counter from "./Counter";
 // import { connect } from "react-redux";
 
 // import { addItem } from "redux/counter/counter.action";
-class Contact extends React.Component {
-  render() {
-    return (
-      <div>
-        <Counter />
-      </div>
-    );
-  }
-}
+
+const Contact = props => {
+  console.log(props);
+  return <div></div>;
+};
 
 Contact.propTypes = {};
 

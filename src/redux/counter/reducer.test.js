@@ -6,9 +6,9 @@ it("render counterReducer at the front", () => {
   const newState = CounterReducer(state, {
     type: "GET_POSTS_BEGIN"
   });
-  expect(newState.isLoading).toBe(true);
-  expect(newState.err).toBe(null);
-  expect(newState.posts).toStrictEqual([]);
+  expect(newState.coursesLoading).toBe(false);
+  expect(newState.coursesError).toBe(null);
+  expect(newState.courses).toStrictEqual([]);
 });
 
 it("render Posts success", () => {
@@ -17,6 +17,6 @@ it("render Posts success", () => {
   const newState = CounterReducer(state, {
     type: "GET_POSTS_SUCCESS"
   });
-  expect(newState.isLoading).toBe(false);
-  expect(newState.err).toBe(null);
+  expect(newState.coursesLoading).toBe(false);
+  expect(newState.coursesError).toBe(null);
 });
