@@ -1,17 +1,18 @@
-import { put, takeEvery } from "redux-saga/effects";
+import { put, takeEvery, take, all, delay } from "redux-saga/effects";
 
-import CounterActionTypes from "./counter.types";
+// import { CounterActionTypes } from "./counter.types";
 
-const delay = ms => new Promise(res => setTimeout(res, ms));
+const dela = ms => new Promise(res => setTimeout(res, ms));
 
-export function* incrementAsync() {
+function* incrementAsync() {
   console.info("Increment Async!");
-  yield delay(2000);
-  yield put(CounterActionTypes.INCREMENT);
+  console.log(dela);
+  console.log(delay());
+  yield dela(2000);
+  yield put({ type: "INCREMENT" });
+  // yield put(CounterActionTypes.INCREMENT);
 }
 
 export function* watchIncrementAsync() {
-  yield takeEvery(CounterActionTypes.ASYNC, incrementAsync);
+  yield takeEvery("ASYNC", incrementAsync);
 }
-
-export function* fetchCollectionStart() {}

@@ -4,7 +4,8 @@ import produce from "immer";
 import CounterActionTypes from "./counter.types";
 
 const INITIAL_STATE = {
-  value: 0
+  value: 0,
+  me: 0
 };
 
 const CounterReducer = produce((draft, action) => {
@@ -15,6 +16,10 @@ const CounterReducer = produce((draft, action) => {
 
     case CounterActionTypes.DECREMENT:
       draft.value = draft.value - 1;
+      return;
+
+    case CounterActionTypes.ASYNC:
+      // draft.me = draft.me + 1;
       return;
 
     default:
