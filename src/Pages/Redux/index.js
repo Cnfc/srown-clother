@@ -1,8 +1,3 @@
-import React, { Component } from "react";
+import Redux from "./Redux";
 
-class Redux extends Component {
-  render() {
-    return <div>Redux Page</div>;
-  }
-}
 export default Redux;

@@ -13,7 +13,8 @@ import Checkout from "Pages/checkout";
 import Header from "components/Header";
 import SignInAndSignUpPage from "Pages/SignIn_Signup";
 import Contact from "Pages/Contact";
-import Redux from "Pages/Redux";
+import ReduxPage from "Pages/Redux";
+import Clip from "Pages/Clip";
 
 import "./App.css";
 
@@ -49,8 +50,9 @@ class App extends Component {
         <Switch>
           <Route exact path="/" component={HomePage} />
           <Route path="/shop" component={ShopPage} />
+          <Route path="/clip" component={Clip} />
           <Route path="/contact" component={Contact} />
-          <Route path="/redux" component={Redux} />
+          <Route path="/redux" component={ReduxPage} />
           <Route path="/contact/:courseid" component={Contact} />
           <Route exact path="/checkout" component={Checkout} />
           <Route

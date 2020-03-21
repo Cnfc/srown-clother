@@ -13,6 +13,9 @@ const CounterReducer = produce((draft, action) => {
     case CounterActionTypes.INCREMENT:
       draft.value = draft.value + 1;
       return;
+    case CounterActionTypes.INCREMENT_FROM_SAGA:
+      draft.value = draft.value + 1;
+      return;
 
     case CounterActionTypes.DECREMENT:
       draft.value = draft.value - 1;
