@@ -10,7 +10,7 @@ const Counter = ({ value, onIncrement, onDecrement, onIncrementAsync }) => (
   <div>
     <button onClick={onIncrement}>Increment</button>{" "}
     <button onClick={onDecrement}>Decrement</button>
-    <button onClick={onIncrementAsync}>INcrement After 1 sec</button>
+    <button onClick={onIncrementAsync}>Increment After 3 sec</button>
     <hr />
     <div>Clicked: {value} times</div>
   </div>

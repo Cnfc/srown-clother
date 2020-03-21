@@ -28,5 +28,5 @@ export function* helloSaga() {
 // }
 
 export function* watchIncrementAsync() {
-  yield takeEvery("INCREMENT", helloSaga);
+  yield takeEvery("ASYNC", helloSaga);
 }
