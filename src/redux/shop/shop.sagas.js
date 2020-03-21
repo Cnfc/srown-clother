@@ -5,26 +5,21 @@ import {
   firestore,
   convertCollectionSnapshotToMap
 } from "firebase/firebase.utils";
-
 import { fetchCollectionSuccess, fetchCollectionFail } from "./shop.actions";
 import ShopActionTypes from "./shop.types";
 
-export function* fetchCollectionAsync() {
+export function* fetchCollections() {
   console.log("fetchSagaWorks");
   try {
     const collectionRef = firestore.collection("collections");
     const snapshot = yield collectionRef.get();
-    const callectionMap = yield call(convertCollectionSnapshotToMap, snapshot);
-
-    yield put(fetchCollectionSuccess(callectionMap));
+    const collectionsMap = yield call(convertCollectionSnapshotToMap, snapshot);
+    yield put(fetchCollectionSuccess(collectionsMap));
   } catch (error) {
     yield put(fetchCollectionFail(error.message));
   }
 }
 
-export function* fetchCollectionsStart() {
-  yield takeLatest(
-    ShopActionTypes.FETCH_COLLECTIONS_START,
-    fetchCollectionAsync
-  );
+export function* onfetchCollectionsStart() {
+  yield takeLatest(ShopActionTypes.FETCH_COLLECTIONS_START, fetchCollections);
 }

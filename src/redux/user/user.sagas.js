@@ -7,6 +7,7 @@ import {
 } from "redux/user/user.actions";
 
 import UserActionTypes from "./user.types";
+
 import {
   auth,
   googleProvider,
@@ -15,12 +16,16 @@ import {
 
 export function* signInWithGoogle() {
   try {
-    const { user } = yield auth.signInWithPopup(googleProvider);
-    const userRef = yield call(createUserProfileDocument, user);
-    const userSnapshot = yield userRef.get();
-    yield put(
-      googleSignInSuccess({ id: userSnapshot.id, ...userSnapshot.data() })
-    );
+    const userRef = yield auth.signInWithPopup(googleProvider);
+    console.log(userRef);
+    // const userRef = yield call(createUserProfileDocument, user);
+    // const userSnapshot = yield userRef.get();
+    // yield put(
+    //   googleSignInSuccess({
+    //     id: userSnapshot.id,
+    //     ...userSnapshot.data()
+    //   })
+    // );
   } catch (error) {
     yield put(googleSignInFailure(error));
   }
