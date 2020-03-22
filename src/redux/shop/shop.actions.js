@@ -1,4 +1,5 @@
 import ShopActionTypes from "./shop.types";
+
 import {
   firestore,
   convertCollectionSnapshotToMap
@@ -13,7 +14,7 @@ export const fetchCollectionSuccess = collectionMap => ({
   payload: collectionMap
 });
 
-export const fetchCollectionFail = error => ({
+export const fetchCollectionFailure = error => ({
   type: ShopActionTypes.FETCH_COLLECTIONS_FAIL,
   payload: error
 });

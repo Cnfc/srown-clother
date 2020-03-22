@@ -7,25 +7,29 @@ const INITIAL_STATE = {
   errorMessage: null
 };
 
-const shopReducer = produce((draft, action) => {
+const shopReducer = (state = INITIAL_STATE, action) => {
   switch (action.type) {
     case ShopActionTypes.FETCH_COLLECTIONS_START:
-      draft.isFetching = true;
-      return;
-
+      return {
+        ...state,
+        isFetching: true
+      };
     case ShopActionTypes.FETCH_COLLECTIONS_SUCCESS:
-      draft.isFetching = false;
-      draft.collections = action.payload;
-      return;
-
-    case ShopActionTypes.FETCH_COLLECTIONS_FAIL:
-      draft.isFetching = false;
-      draft.errorMessage = action.payload;
-      return;
+      return {
+        ...state,
+        isFetching: false,
+        collections: action.payload
+      };
+    case ShopActionTypes.FETCH_COLLECTIONS_FAILURE:
+      return {
+        ...state,
+        isFetching: false,
+        errorMessage: action.payload
+      };
 
     default:
-      return;
+      return state;
   }
-}, INITIAL_STATE);
+};
 
 export default shopReducer;
