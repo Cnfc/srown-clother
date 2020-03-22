@@ -1,11 +1,15 @@
 /* eslint-disable require-yield */
-import { takeLatest, put, call } from "redux-saga/effects";
+import { takeLatest, put, call, all } from "redux-saga/effects";
 
 import {
   firestore,
   convertCollectionSnapshotToMap
 } from "firebase/firebase.utils";
-import { fetchCollectionSuccess, fetchCollectionFail } from "./shop.actions";
+import {
+  fetchCollectionSuccess,
+  fetchCollectionFail,
+  fetchCollectionStart
+} from "./shop.actions";
 import ShopActionTypes from "./shop.types";
 
 export function* fetchCollections() {
@@ -22,4 +26,8 @@ export function* fetchCollections() {
 
 export function* onfetchCollectionsStart() {
   yield takeLatest(ShopActionTypes.FETCH_COLLECTIONS_START, fetchCollections);
+}
+
+export function* shopSagas() {
+  yield all([call(fetchCollectionStart)]);
 }
