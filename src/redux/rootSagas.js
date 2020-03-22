@@ -6,5 +6,9 @@ import { userSagas } from "redux/user/user.sagas";
 import { onfetchCollectionsStart } from "redux/shop/shop.sagas";
 
 export default function* rootSaga() {
-  yield all([call(onfetchCollectionsStart), call[userSagas]]);
+  yield all([
+    call(onfetchCollectionsStart),
+    call(userSagas),
+    call(watchIncrementAsync)
+  ]);
 }
