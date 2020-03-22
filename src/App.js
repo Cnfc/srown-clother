@@ -15,10 +15,14 @@ import ReduxPage from "Pages/Redux";
 import Clip from "Pages/Clip";
 
 import "./App.css";
+import { checkUserSession } from "redux/user/user.actions";
 
 class App extends Component {
   unsubscribeFromAuth = null;
-
+  componentDidMount() {
+    const { checkUserSession } = this.props;
+    checkUserSession();
+  }
   componentWillUnmount() {
     this.unsubscribeFromAuth();
   }
@@ -56,4 +60,8 @@ const mapStateToProps = createStructuredSelector({
   currentUser: selectCurrentUser
 });
 
-export default connect(mapStateToProps)(App);
+const mapDispatch = dispatch => ({
+  checkUserSession: () => dispatch(checkUserSession())
+});
+
+export default connect(mapStateToProps, mapDispatch)(App);
