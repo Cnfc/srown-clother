@@ -1,6 +1,7 @@
 import React from "react";
 import PropTypes from "prop-types";
 import StripeCheckout from "react-stripe-checkout";
+import axios from "axios";
 
 const StripeButton = ({ price }) => {
   const priceForStripe = price * 100;
@@ -8,7 +9,21 @@ const StripeButton = ({ price }) => {
 
   const onToken = token => {
     console.log(token);
-    alert("Payment successful");
+    axios({
+      url: "payment",
+      method: "post",
+      data: {
+        amount: priceForStripe,
+        token
+      }
+    })
+      .then(res => {
+        console.log("Payment Sucess");
+      })
+      .catch(error => {
+        console.log("Errore,", JSON.parse(error));
+        alert("Warning make sure your are using corrent cart ");
+      });
   };
 
   return (
