@@ -7,7 +7,7 @@ React, React Router, Redux, Redux Saga, GraphQl, Apollo
 
 -- with Router navigation Hoc
 
-# Redux - Reselect
+# Redux Reselect && useSelector
 
 Simple “selector” library for Redux (and others) inspired by getters in NuclearJS, subscriptions in re-frame and this proposal from speedskater.
 

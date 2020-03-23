@@ -6,7 +6,7 @@ import {
   signInFailure,
   signOutSuccess,
   signOutFailure,
-  signUpStart,
+  // signUpStart,
   signUpSuccess,
   signUpFailure
 } from "redux/user/user.actions";

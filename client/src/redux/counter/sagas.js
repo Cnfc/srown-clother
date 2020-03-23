@@ -1,4 +1,8 @@
-import { put, takeEvery, take, all, call } from "redux-saga/effects";
+import {
+  put,
+  takeEvery
+  //  take, all, call
+} from "redux-saga/effects";
 
 // import { CounterActionTypes } from "./counter.types";
 

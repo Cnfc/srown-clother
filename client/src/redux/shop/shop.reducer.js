@@ -1,5 +1,5 @@
 import ShopActionTypes from "./shop.types";
-import produce from "immer";
+// import produce from "immer";
 
 const INITIAL_STATE = {
   collections: null,
