@@ -11,10 +11,11 @@ import SignInAndSignUpPage from "Pages/SignIn_Signup";
 import Contact from "Pages/Contact";
 import ReduxPage from "Pages/Redux";
 import Clip from "Pages/Clip";
-
-import "./App.css";
+import Hooks from "Pages/Hooks";
 import { checkUserSession } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selectors";
+
+import { GlobalStyle } from "./global.styles";
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -23,6 +24,7 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
         <Route exact path="/" component={HomePage} />
@@ -30,6 +32,7 @@ const App = ({ checkUserSession, currentUser }) => {
         <Route path="/clip" component={Clip} />
         <Route path="/contact" component={Contact} />
         <Route path="/redux" component={ReduxPage} />
+        <Route path="/hooks" component={Hooks} />
         <Route path="/contact/:courseid" component={Contact} />
         <Route exact path="/checkout" component={Checkout} />
         <Route

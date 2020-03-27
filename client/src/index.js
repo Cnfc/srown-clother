@@ -8,7 +8,6 @@ import Modal from "react-modal";
 
 import App from "./App";
 
-import "./index.css";
 // import ErrorBoundary from "components/ErrorBoundary";
 
 Modal.setAppElement("#root");
