@@ -1,29 +1,45 @@
 import styled from "styled-components";
 
 export const CollectionItemStyled = styled.div`
-  width: 22vw;
-  display: flex;
-  flex-direction: column;
-  height: 350px;
-  align-items: center;
-  position: relative;
+         width: 22vw;
+         display: flex;
+         flex-direction: column;
+         height: 350px;
+         position: relative;
+         align-items: center;
+         justify-content: center;
 
-  &:hover {
-    .background-image {
-      opacity: 0.8;
-    }
-    .add-button {
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      &:hover {
-        background-color: black;
-        color: white;
-        opacity: 0.85;
-      }
-    }
-  }
-`;
+         &:hover {
+           .background-image {
+             opacity: 0.8;
+           }
+           .add-button {
+             display: flex;
+             align-items: center;
+             justify-content: center;
+             &:hover {
+               background-color: black;
+               color: white;
+               opacity: 0.85;
+             }
+           }
+         }
+
+         @media screen and (max-width: 800px) {
+           width:40vw;
+
+           &:hover {
+             opacity: unset;
+           .background-image {
+             opacity: unset;
+           }
+           .add-button {
+             opacity: unset;
+             
+           }
+
+         }
+       `;
 
 export const ImageStyled = styled.div`
   width: 100%;
@@ -52,15 +68,24 @@ export const PriceStyled = styled.span`
 `;
 
 export const AddButton = styled.div`
-  position: absolute;
-  height: 50px;
   width: 80%;
-  padding: 25px;
+  position: absolute;
   opacity: 0.7;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  display: none;
   top: 255px;
-  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  ${"" /* padding: 25px; */}
+  background-color: white;
+  ${"" /* color: black; */}
+  ${"" /* font-weight: bold; */}
+   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    display: flex;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;
