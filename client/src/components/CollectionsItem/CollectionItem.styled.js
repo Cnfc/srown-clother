@@ -23,6 +23,18 @@ export const CollectionItemStyled = styled.div`
       }
     }
   }
+  @media screen and (max-width: 800px) {
+    width: 40vw;
+    &:hover {
+      opacity: unset;
+      .background-image {
+        opacity: unset;
+      }
+      .add-button {
+        opacity: unset;
+      }
+    }
+  }
 `;
 
 export const ImageStyled = styled.div`
@@ -52,15 +64,24 @@ export const PriceStyled = styled.span`
 `;
 
 export const AddButton = styled.div`
-  position: absolute;
-  height: 50px;
   width: 80%;
-  padding: 25px;
+  position: absolute;
   opacity: 0.7;
-  background-color: white;
-  color: black;
-  font-weight: bold;
-  display: none;
   top: 255px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 50px;
+  ${"" /* padding: 25px; */}
+  background-color: white;
+  ${"" /* color: black; */}
+  ${"" /* font-weight: bold; */}
   cursor: pointer;
+
+  @media screen and (max-width: 800px) {
+    display: flex;
+    opacity: 0.9;
+    min-width: unset;
+    padding: 0 10px;
+  }
 `;

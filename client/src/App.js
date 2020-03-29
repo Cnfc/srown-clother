@@ -12,7 +12,10 @@ import Contact from "Pages/Contact";
 import ReduxPage from "Pages/Redux";
 import Clip from "Pages/Clip";
 
-import "./App.css";
+import Hooks from "Pages/Hooks";
+import { GlobalStyle } from "./global.styles";
+import ErrorBoundary from "components/ErrorBoundary";
+
 import { checkUserSession } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selectors";
 
@@ -23,22 +26,26 @@ const App = ({ checkUserSession, currentUser }) => {
 
   return (
     <div>
+      <GlobalStyle />
       <Header />
       <Switch>
-        <Route exact path="/" component={HomePage} />
-        <Route path="/shop" component={ShopPage} />
-        <Route path="/clip" component={Clip} />
-        <Route path="/contact" component={Contact} />
-        <Route path="/redux" component={ReduxPage} />
-        <Route path="/contact/:courseid" component={Contact} />
-        <Route exact path="/checkout" component={Checkout} />
-        <Route
-          exact
-          path="/signin"
-          render={() =>
-            currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
-          }
-        />
+        <ErrorBoundary>
+          <Route exact path="/" component={HomePage} />
+          <Route path="/shop" component={ShopPage} />
+          <Route path="/clip" component={Clip} />
+          <Route path="/hooks" component={Hooks} />
+          <Route path="/contact" component={Contact} />
+          <Route path="/redux" component={ReduxPage} />
+          <Route path="/contact/:courseid" component={Contact} />
+          <Route exact path="/checkout" component={Checkout} />
+          <Route
+            exact
+            path="/signin"
+            render={() =>
+              currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
+            }
+          />
+        </ErrorBoundary>
       </Switch>
     </div>
   );
