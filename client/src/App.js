@@ -9,6 +9,7 @@ import { checkUserSession } from "redux/user/user.actions";
 import { selectCurrentUser } from "redux/user/user.selectors";
 
 import { GlobalStyle } from "./global.styles";
+import ErrorBoundary from "components/ErrorBoundary";
 
 const HomePage = lazy(() => import("Pages/Homepage"));
 const ShopPage = lazy(() => import("Pages/ShopPage"));
@@ -29,23 +30,25 @@ const App = ({ checkUserSession, currentUser }) => {
       <GlobalStyle />
       <Header />
       <Switch>
-        <Suspense fallback={<Spinner />}>
-          <Route exact path="/" component={HomePage} />
-          <Route path="/shop" component={ShopPage} />
-          <Route path="/clip" component={Clip} />
-          <Route path="/contact" component={Contact} />
-          <Route path="/redux" component={ReduxPage} />
-          <Route path="/hooks" component={Hooks} />
-          <Route path="/contact/:courseid" component={Contact} />
-          <Route exact path="/checkout" component={Checkout} />
-          <Route
-            exact
-            path="/signin"
-            render={() =>
-              currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
-            }
-          />
-        </Suspense>
+        <ErrorBoundary>
+          <Suspense fallback={<Spinner />}>
+            <Route exact path="/" component={HomePage} />
+            <Route path="/shop" component={ShopPage} />
+            <Route path="/clip" component={Clip} />
+            <Route path="/contact" component={Contact} />
+            <Route path="/redux" component={ReduxPage} />
+            <Route path="/hooks" component={Hooks} />
+            <Route path="/contact/:courseid" component={Contact} />
+            <Route exact path="/checkout" component={Checkout} />
+            <Route
+              exact
+              path="/signin"
+              render={() =>
+                currentUser ? <Redirect to="/" /> : <SignInAndSignUpPage />
+              }
+            />
+          </Suspense>
+        </ErrorBoundary>
       </Switch>
     </div>
   );
