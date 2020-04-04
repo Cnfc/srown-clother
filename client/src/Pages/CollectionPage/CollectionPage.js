@@ -7,17 +7,18 @@ import { selectCollection } from "redux/shop/shop.selectors";
 import {
   CollectionPageContainer,
   TitleContainer,
-  ItemsContainer
+  ItemsContainer,
 } from "./CollectionPage.styled";
 
 const CategoryPage = ({ collection }) => {
   const { title, items } = collection;
+
   return (
     <CollectionPageContainer>
       <TitleContainer>{title}</TitleContainer>
 
       <ItemsContainer>
-        {items.map(item => (
+        {items.map((item) => (
           <CollectionItem key={item.id} item={item} />
         ))}
       </ItemsContainer>
@@ -26,7 +27,7 @@ const CategoryPage = ({ collection }) => {
 };
 
 const mapStateToProps = (state, ownProps) => ({
-  collection: selectCollection(ownProps.match.params.collectionId)(state)
+  collection: selectCollection(ownProps.match.params.collectionId)(state),
 });
 
 export default connect(mapStateToProps)(CategoryPage);
