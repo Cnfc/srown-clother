@@ -7,8 +7,15 @@ import { store, persistor } from "./redux/store";
 import Modal from "react-modal";
 
 import App from "./App";
-
 import "./index.css";
+
+if (process.env.NODE_ENV === "development") {
+  const whyDidYouRender = require("@welldone-software/why-did-you-render");
+  console.log("Works");
+  whyDidYouRender(React, {
+    trackAllPureComponents: true,
+  });
+}
 
 Modal.setAppElement("#root");
 
