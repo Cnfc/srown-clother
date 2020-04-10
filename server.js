@@ -2,6 +2,7 @@ const express = require("express");
 const cors = require("cors");
 const bodyParser = require("body-parser");
 const path = require("path");
+const morgan = require("morgan");
 
 if (process.env.NODE_ENV !== "production") require("dotenv").config();
 
@@ -11,14 +12,18 @@ const app = express();
 const port = process.env.PORT || 5000;
 
 app.use(bodyParser.json());
-app.use(bodyParser.urlencoded({ extended: true }));
 
+// == middlewares node
 app.use(cors());
+app.use(morgan("combined"));
+// ==
+
+app.use(bodyParser.urlencoded({ extended: true }));
 
 if (process.env.NODE_ENV === "production") {
   app.use(express.static(path.join(__dirname, "client/build")));
 
-  app.get("*", function(req, res) {
+  app.get("*", function (req, res) {
     res.sendFile(path.join(__dirname, "client/build", "index.html"));
   });
 }
@@ -27,7 +32,7 @@ app.post("/payment", (req, res) => {
   const body = {
     source: req.body.token.id,
     amount: req.body.amount,
-    currency: "usd"
+    currency: "usd",
   };
 
   stripe.charges.create(body, (stripeErr, stripeRes) => {
@@ -39,7 +44,7 @@ app.post("/payment", (req, res) => {
   });
 });
 
-app.listen(port, error => {
+app.listen(port, (error) => {
   if (error) throw error;
   console.log("Server running on port " + port);
 });

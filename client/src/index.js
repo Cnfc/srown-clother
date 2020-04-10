@@ -11,7 +11,7 @@ import "./index.css";
 
 if (process.env.NODE_ENV === "development") {
   const whyDidYouRender = require("@welldone-software/why-did-you-render");
-  console.log("Works");
+
   whyDidYouRender(React, {
     trackAllPureComponents: true,
   });
