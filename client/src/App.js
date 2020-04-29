@@ -18,7 +18,7 @@ const SignInAndSignUpPage = lazy(() => import("Pages/SignIn_Signup"));
 const Checkout = lazy(() => import("Pages/checkout"));
 const ReduxPage = lazy(() => import("Pages/Redux"));
 const Clip = lazy(() => import("Pages/Clip"));
-const Hooks = lazy(() => import("Pages/Hooks"));
+// const Hooks = lazy(() => import("Pages/Hooks"));
 
 const App = ({ checkUserSession, currentUser }) => {
   useEffect(() => {
@@ -35,7 +35,7 @@ const App = ({ checkUserSession, currentUser }) => {
             <Route exact path="/" component={HomePage} />
             <Route path="/shop" component={ShopPage} />
             <Route path="/clip" component={Clip} />
-            <Route path="/hooks" component={Hooks} />
+            {/* <Route path="/hooks" component={Hooks} /> */}
             <Route path="/contact" component={Contact} />
             <Route path="/redux" component={ReduxPage} />
             <Route path="/contact/:courseid" component={Contact} />
@@ -55,11 +55,11 @@ const App = ({ checkUserSession, currentUser }) => {
 };
 
 const mapStateToProps = createStructuredSelector({
-  currentUser: selectCurrentUser
+  currentUser: selectCurrentUser,
 });
 
-const mapDispatch = dispatch => ({
-  checkUserSession: () => dispatch(checkUserSession())
+const mapDispatch = (dispatch) => ({
+  checkUserSession: () => dispatch(checkUserSession()),
 });
 
 export default connect(mapStateToProps, mapDispatch)(App);
